@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .header {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px 0 32px;
+        }
+
+        .header-left {
+            line-height: 1.1;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .beezus {
+            font-size: 48px;
+            letter-spacing: 3px;
+            font-family: 'Italianno', cursive;
+        }
+
+        .photography {
+            font-size: 14px;
+            transform: translate(2px, -11px);
+            letter-spacing: -0.5px;
+            font-family: 'Andika New Basic', sans-serif;
+        }
+
+        .content {
+            height: calc(100vh - 64px - 64px - 2px);
+            width: 100vw;
+            border-top: solid 1px white;
+            border-bottom: solid 1px white;
+            overflow: hidden;
+        }
+
+        .instagram-link {
+            font-family: 'Caveat', cursive;
+            padding: 4px 8px;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .instagram-link:hover {
+            border-bottom: solid 1px white;
+        }
+
+        .picture {
+            position: absolute;
+            height: calc(100vh - 64px - 64px - 2px);
+            width: 100vw;
+            object-fit: cover;
+            transition: opacity 500ms;
+        }
+        .picture.hidden {
+            opacity: 0;
+        }
+
+        .loading-overlay {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            background-color: black;
+            opacity: 1;
+            z-index: 1;
+            transition: opacity 700ms;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .header-loader {
+            width: 100%;
+            height: 5px;
+            background-color: white;
+            transform-origin: left;
+        }
+
+        .header-loader-placeholder-container {
+            width: 100vw;
+            height: 5px;
+            transform-origin: left;
+            position: absolute;
+            line-height: 0;
+        }
+
+        .header-loader-placeholder {
+            width: calc((100% / 12) - 4px);
+            height: 100%;
+            left: 2px;
+            background-color: white;
+            opacity: 0.3;
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+    </style>
+
+    <div class="loading-overlay"></div>
+
+    <div class="header">
+        <div class="header-left">
+            <div class="beezus">Beezus</div>
+            <div class="photography">PHOTOGRAPHY</div>
+        </div>
+        <div class="header-right">
+            <a class="instagram-link" href="https://www.instagram.com/beezus_photography/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </div>
+    <div class="header-loader-placeholder-container">
+        <span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span>
+    </div>
+    </div>
+    <div class="header-loader"></div>
+
+    <div class="content" id="pictureParent">
+        <img src="0.JPG" alt="" id="picture0" class="picture">
+        <img src="1.JPG" alt="" id="picture1" class="picture hidden">
+        <img src="2.JPG" alt="" id="picture2" class="picture hidden">
+        <img src="3.JPG" alt="" id="picture3" class="picture hidden">
+    </div>
+    <div class="footer"></div>
+
+    <script>
+        (function() {
+            const pictureParentSelector = document.querySelector(`#pictureParent`)
+            const amountOfPictures = pictureParentSelector.childElementCount
+            const msToInterpretClickAsHold = 300
+            let currentPicture = 0
+            let elapsed = 0
+            let nextPictureInterval
+            let isPlaying = false
+
+            // Pasar a la siguiente imagen
+            const nextPicture = function() {
+                const currentPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
+
+                currentPicture = (currentPicture + 1) % amountOfPictures
+
+                const nextPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
+
+                currentPictureNode.classList.add('hidden')
+                nextPictureNode.classList.remove('hidden')
+            }
+
+            // Continuar animación
+            const startMainInterval = function () {
+                isPlaying = true
+                nextPictureInterval = setInterval(() => {
+                    elapsed = elapsed + 10
+                    document.querySelector('.header-loader').style.transform = `scaleX(${((elapsed / 5000) / 12) + (currentPicture / 12)})`
+                    if (elapsed === 5000) {
+                        elapsed = 0
+                        nextPicture()
+                    }
+                }, 10);
+            }
+
+            // Pausar animación
+            const pauseMainInterval = function() {
+                isPlaying = true
+                clearInterval(nextPictureInterval)
+            }
+
+            // Comportamiento al soltar el click tras haber mantenido click brevemente en una imagen
+            const pictureClick = function () {
+                console.log('click')
+                nextPicture()
+                elapsed = 0
+                startMainInterval()
+            }
+
+            // Comportamiento al soltar el click tras haber mantenido click durante un rato en una imagen
+            const pictureHold = function() {
+                startMainInterval()
+            }
+
+            //////////////////// MAIN
+
+            // Delay inicial de 300ms para cargar los assets
+            setTimeout(() => {
+                document.querySelector('.loading-overlay').classList.add('hidden')
+                startMainInterval()
+            }, 300);
+
+            // Manejar interacción sobre las imágenes
+            pictureParentSelector.addEventListener('mousedown', () => {
+                const startTime = new Date()
+                pauseMainInterval()
+                document.addEventListener('mouseup', () => {
+                    const endTime = new Date()
+                    const timeElapsed = endTime - startTime
+                    if (timeElapsed < msToInterpretClickAsHold) {
+                        pictureClick()
+                    } else {
+                        pictureHold()
+                    }
+
+                }, { once: true })
+            })
+        })()
+    </script>
+
+</body>
+</html>

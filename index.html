@@ -16,6 +16,10 @@
 <body>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             background-color: black;
@@ -28,6 +32,11 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 32px 0 32px;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            margin-top: 16px;
         }
 
         .header-left {
@@ -51,10 +60,8 @@
         }
 
         .content {
-            height: calc(100vh - 64px - 64px - 2px);
+            height: 100vh;
             width: 100vw;
-            border-top: solid 1px white;
-            border-bottom: solid 1px white;
             overflow: hidden;
         }
 
@@ -72,7 +79,7 @@
 
         .picture {
             position: absolute;
-            height: calc(100vh - 64px - 64px - 2px);
+            height: 100%;
             width: 100vw;
             object-fit: cover;
             transition: opacity 500ms;
@@ -96,31 +103,88 @@
             pointer-events: none;
         }
 
-        .header-loader {
-            width: 100%;
-            height: 5px;
-            background-color: white;
-            transform-origin: left;
-        }
-
         .header-loader-placeholder-container {
             width: 100vw;
-            height: 5px;
-            transform-origin: left;
-            position: absolute;
+            height: 6px;
             line-height: 0;
+            position: absolute;
+            z-index: 1;
         }
 
         .header-loader-placeholder {
-            width: calc((100% / 12) - 4px);
+            width: calc((100% / 12) - 8px);
             height: 100%;
-            left: 2px;
             background-color: white;
             opacity: 0.3;
             display: inline-block;
             margin-right: 4px;
         }
 
+        .header-loader-container {
+            top: 0;
+            width: 100vw;
+            height: 6px;
+            transform-origin: left;
+            line-height: 0;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .header-loader {
+            width: calc((100% / 12) - 8px);
+            height: 100%;
+            background-color: white;
+            opacity: 1;
+            display: inline-block;
+            margin-right: 4px;
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .header-loader.loading {
+            transform: scaleX(0);
+        }
+
+        .header-loader.loading ~ .header-loader {
+            transform: scaleX(0);
+        }
+
+        #picture0 {
+            object-position: 60% 20%;
+        }
+        #picture1 {
+            object-position: 45% 20%;
+        }
+        #picture2 {
+            object-position: 36% 50%;
+        }
+        #picture3 {
+            object-position: 50% 10%;
+        }
+        #picture4 {
+            object-position: 58% 70%;
+        }
+        #picture5 {
+            object-position: 46% 10%;
+        }
+        #picture6 {
+            object-position: 50% 0%;
+        }
+        #picture7 {
+            object-position: 37% 0%;
+        }
+        #picture8 {
+            object-position: 56% 30%;
+        }
+        #picture9 {
+            object-position: 63% 60%;
+        }
+        #picture10 {
+            object-position: 43% 20%;
+        }
+        #picture11 {
+            object-position: 40% 0%;
+        }
     </style>
 
     <div class="loading-overlay"></div>
@@ -135,24 +199,57 @@
         </div>
     </div>
     <div class="header-loader-placeholder-container">
-        <span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span><span class="header-loader-placeholder"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder0"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder1"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder2"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder3"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder4"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder5"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder6"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder7"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder8"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder9"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder10"></span>
+        <span class="header-loader-placeholder" id="header-loader-placeholder11"></span>
     </div>
+    <div class="header-loader-container" id="pictureLoaderParent">
+        <span class="header-loader loading" id="header-loader0"></span>
+        <span class="header-loader" id="header-loader1"></span>
+        <span class="header-loader" id="header-loader2"></span>
+        <span class="header-loader" id="header-loader3"></span>
+        <span class="header-loader" id="header-loader4"></span>
+        <span class="header-loader" id="header-loader5"></span>
+        <span class="header-loader" id="header-loader6"></span>
+        <span class="header-loader" id="header-loader7"></span>
+        <span class="header-loader" id="header-loader8"></span>
+        <span class="header-loader" id="header-loader9"></span>
+        <span class="header-loader" id="header-loader10"></span>
+        <span class="header-loader" id="header-loader11"></span>
     </div>
-    <div class="header-loader"></div>
 
     <div class="content" id="pictureParent">
-        <img src="0.JPG" alt="" id="picture0" class="picture">
-        <img src="1.JPG" alt="" id="picture1" class="picture hidden">
-        <img src="2.JPG" alt="" id="picture2" class="picture hidden">
-        <img src="3.JPG" alt="" id="picture3" class="picture hidden">
+        <img src="TOP1.JPG" alt="" id="picture0" class="picture">
+        <img src="TOP2.JPG" alt="" id="picture1" class="picture hidden">
+        <img src="TOP3.JPG" alt="" id="picture2" class="picture hidden">
+        <img src="TOP4.JPG" alt="" id="picture3" class="picture hidden">
+        <img src="TOP5.JPG" alt="" id="picture4" class="picture hidden">
+        <img src="TOP6.JPG" alt="" id="picture5" class="picture hidden">
+        <img src="TOP7.JPG" alt="" id="picture6" class="picture hidden">
+        <img src="TOP8.JPG" alt="" id="picture7" class="picture hidden">
+        <img src="TOP9.JPG" alt="" id="picture8" class="picture hidden">
+        <img src="TOP10.JPG" alt="" id="picture9" class="picture hidden">
+        <img src="TOP11.JPG" alt="" id="picture10" class="picture hidden">
+        <img src="TOP12.JPG" alt="" id="picture11" class="picture hidden">
     </div>
     <div class="footer"></div>
 
     <script>
         (function() {
             const pictureParentSelector = document.querySelector(`#pictureParent`)
+            const pictureLoaderParentSelector = document.querySelector(`#pictureLoaderParent`)
             const amountOfPictures = pictureParentSelector.childElementCount
             const msToInterpretClickAsHold = 300
+            const timeBetweenPictures = 3000
             let currentPicture = 0
             let elapsed = 0
             let nextPictureInterval
@@ -161,13 +258,20 @@
             // Pasar a la siguiente imagen
             const nextPicture = function() {
                 const currentPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
+                const currentPictureLoader = pictureLoaderParentSelector.querySelector(`#header-loader${currentPicture}`)
 
                 currentPicture = (currentPicture + 1) % amountOfPictures
 
                 const nextPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
+                const nextPictureLoader = pictureLoaderParentSelector.querySelector(`#header-loader${currentPicture}`)
 
                 currentPictureNode.classList.add('hidden')
                 nextPictureNode.classList.remove('hidden')
+
+                currentPictureLoader.classList.remove('loading')
+                currentPictureLoader.style.transform = null
+                nextPictureLoader.classList.add('loading')
+
             }
 
             // Continuar animación
@@ -175,8 +279,8 @@
                 isPlaying = true
                 nextPictureInterval = setInterval(() => {
                     elapsed = elapsed + 10
-                    document.querySelector('.header-loader').style.transform = `scaleX(${((elapsed / 5000) / 12) + (currentPicture / 12)})`
-                    if (elapsed === 5000) {
+                    document.querySelector(`#header-loader${currentPicture}`).style.transform = `scaleX(${(elapsed / timeBetweenPictures)})`
+                    if (elapsed === timeBetweenPictures) {
                         elapsed = 0
                         nextPicture()
                     }
@@ -191,7 +295,6 @@
 
             // Comportamiento al soltar el click tras haber mantenido click brevemente en una imagen
             const pictureClick = function () {
-                console.log('click')
                 nextPicture()
                 elapsed = 0
                 startMainInterval()
@@ -210,11 +313,29 @@
                 startMainInterval()
             }, 300);
 
-            // Manejar interacción sobre las imágenes
+            // Manejar interacción sobre las imágenes en desktop
             pictureParentSelector.addEventListener('mousedown', () => {
+                console.log('mousedown')
                 const startTime = new Date()
                 pauseMainInterval()
                 document.addEventListener('mouseup', () => {
+                    const endTime = new Date()
+                    const timeElapsed = endTime - startTime
+                    if (timeElapsed < msToInterpretClickAsHold) {
+                        pictureClick()
+                    } else {
+                        pictureHold()
+                    }
+
+                }, { once: true })
+            })
+
+            // Manejar interacción sobre las imágenes en mobile
+            pictureParentSelector.addEventListener('touchstart', () => {
+                console.log('touchstart')
+                const startTime = new Date()
+                pauseMainInterval()
+                document.addEventListener('touchend', () => {
                     const endTime = new Date()
                     const timeElapsed = endTime - startTime
                     if (timeElapsed < msToInterpretClickAsHold) {

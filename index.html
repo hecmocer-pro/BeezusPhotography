@@ -77,14 +77,13 @@
             border-bottom: solid 1px white;
         }
 
-        .picture {
+        .pictureContainer {
             position: absolute;
-            height: 100%;
-            width: 100vw;
-            object-fit: cover;
             transition: opacity 500ms;
+            width: 100vw;
+            height: 100vh;
         }
-        .picture.hidden {
+        .pictureContainer.hidden {
             opacity: 0;
         }
 
@@ -149,42 +148,136 @@
             transform: scaleX(0);
         }
 
-        #picture0 {
+        .picture {
+            height: 100vh;
+            width: 100vw;
+            object-fit: cover;
+        }
+
+        .picture0 {
             object-position: 60% 20%;
         }
-        #picture1 {
+        .picture1 {
             object-position: 45% 20%;
         }
-        #picture2 {
+        .picture2 {
             object-position: 36% 50%;
         }
-        #picture3 {
+        .picture3 {
             object-position: 50% 10%;
         }
-        #picture4 {
+        .picture4 {
             object-position: 58% 70%;
         }
-        #picture5 {
+        .picture5 {
             object-position: 46% 10%;
         }
-        #picture6 {
+        .picture6 {
             object-position: 50% 0%;
         }
-        #picture7 {
+        .picture7 {
             object-position: 37% 0%;
         }
-        #picture8 {
+        .picture8 {
             object-position: 56% 30%;
         }
-        #picture9 {
+        .picture9 {
             object-position: 63% 60%;
         }
-        #picture10 {
+        .picture10 {
             object-position: 43% 20%;
         }
-        #picture11 {
+        .picture11 {
             object-position: 40% 0%;
         }
+
+        .pictureDescription {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 32px 64px;
+        }
+        .pictureDescription > * {
+            margin: 6px 0;
+            text-align: right;
+        }
+
+        #picture0 > .pictureDescription,
+        #picture1 > .pictureDescription,
+        #picture2 > .pictureDescription,
+        #picture4 > .pictureDescription,
+        #picture5 > .pictureDescription,
+        #picture6 > .pictureDescription,
+        #picture9 > .pictureDescription,
+        #picture10 > .pictureDescription,
+        #picture11 > .pictureDescription {
+            color: white;
+            text-shadow: 1px 1px black;
+        }
+
+        #picture3 > .pictureDescription,
+        #picture7 > .pictureDescription,
+        #picture8 > .pictureDescription {
+            color: black;
+        }
+
+        .pictureLocationLink {
+            color: unset;
+        }
+
+        .pictureYear,
+        .pictureSpecs {
+            font-family: 'Andika New Basic';
+            font-size: 16px;
+        }
+
+        .pictureLocation {
+            font-family: 'Caveat';
+            font-size: 24px;
+        }
+
+        .imageControlBtn {
+            background: transparent;
+            border: none;
+            position: absolute;
+            z-index: 10;
+            width: 50vw;
+            height: 100vh;
+            outline: none;
+        }
+        .prevImageBtn {
+            left: 0;
+        }
+        .nextImageBtn {
+            right: 0;
+        }
+
+        .infoButton {
+            position: absolute;
+            z-index: 20;
+            border: solid 1px black;
+            border-radius: 50%;
+            bottom: 0;
+            left: 0;
+            margin: 32px;
+            font-size: 32px;
+            width: 40px;
+            height: 40px;
+            font-family: 'Italianno';
+            font-weight: 900;
+            font-size: 46px;
+            line-height: 0;
+            letter-spacing: 0;
+            outline: none;
+        }
+        .infoButton:hover {
+            background: red;
+        }
+        .infoButtonI {
+            transform: translate(-2px, 1px);
+            display: inline-block;
+        }
+
     </style>
 
     <div class="loading-overlay"></div>
@@ -227,40 +320,244 @@
         <span class="header-loader" id="header-loader11"></span>
     </div>
 
+    <button id="prevImageBtn" class="imageControlBtn prevImageBtn"></button>
+    <button id="nextImageBtn" class="imageControlBtn nextImageBtn"></button>
     <div class="content" id="pictureParent">
-        <img src="TOP1.JPG" alt="" id="picture0" class="picture">
-        <img src="TOP2.JPG" alt="" id="picture1" class="picture hidden">
-        <img src="TOP3.JPG" alt="" id="picture2" class="picture hidden">
-        <img src="TOP4.JPG" alt="" id="picture3" class="picture hidden">
-        <img src="TOP5.JPG" alt="" id="picture4" class="picture hidden">
-        <img src="TOP6.JPG" alt="" id="picture5" class="picture hidden">
-        <img src="TOP7.JPG" alt="" id="picture6" class="picture hidden">
-        <img src="TOP8.JPG" alt="" id="picture7" class="picture hidden">
-        <img src="TOP9.JPG" alt="" id="picture8" class="picture hidden">
-        <img src="TOP10.JPG" alt="" id="picture9" class="picture hidden">
-        <img src="TOP11.JPG" alt="" id="picture10" class="picture hidden">
-        <img src="TOP12.JPG" alt="" id="picture11" class="picture hidden">
+        <div id="picture0" class="pictureContainer">
+            <img src="TOP1.JPG" alt="" class="picture0 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture1" class="pictureContainer hidden">
+            <img src="TOP2.JPG" alt="" class="picture1 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture2" class="pictureContainer hidden">
+            <img src="TOP3.JPG" alt="" class="picture2 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture3" class="pictureContainer hidden">
+            <img src="TOP4.JPG" alt="" class="picture3 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture4" class="pictureContainer hidden">
+            <img src="TOP5.JPG" alt="" class="picture4 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture5" class="pictureContainer hidden">
+            <img src="TOP6.JPG" alt="" class="picture5 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture6" class="pictureContainer hidden">
+            <img src="TOP7.JPG" alt="" class="picture6 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture7" class="pictureContainer hidden">
+            <img src="TOP8.JPG" alt="" class="picture7 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture8" class="pictureContainer hidden">
+            <img src="TOP9.JPG" alt="" class="picture8 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture9" class="pictureContainer hidden">
+            <img src="TOP10.JPG" alt="" class="picture9 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture10" class="pictureContainer hidden">
+            <img src="TOP11.JPG" alt="" class="picture10 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="picture11" class="pictureContainer hidden">
+            <img src="TOP12.JPG" alt="" class="picture11 picture">
+            <div class="pictureDescription">
+                <div class="pictureYear">
+                    2020
+                </div>
+                <div class="pictureSpecs">
+                    EOS 1832, 70x800, ISO 9000
+                </div>
+                <div class="pictureLocation">
+                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
+                        Addis Abeba, Ethiopia
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="footer"></div>
+    <button class="infoButton">
+        <span class="infoButtonI">i</span>
+    </button>
 
     <script>
-        (function() {
+        // (function() {
+            const prevImageBtnSelector = document.querySelector(`#prevImageBtn`)
+            const nextImageBtnSelector = document.querySelector(`#nextImageBtn`)
             const pictureParentSelector = document.querySelector(`#pictureParent`)
             const pictureLoaderParentSelector = document.querySelector(`#pictureLoaderParent`)
             const amountOfPictures = pictureParentSelector.childElementCount
             const msToInterpretClickAsHold = 300
             const timeBetweenPictures = 3000
+            const debugPaused = false
             let currentPicture = 0
             let elapsed = 0
             let nextPictureInterval
             let isPlaying = false
+            let isBeingClicked = false
 
             // Pasar a la siguiente imagen
             const nextPicture = function() {
+                changePicture(true)
+            }
+
+            // Pasar a la imagen anterior
+            const prevPicture = function() {
+                changePicture(false)
+            }
+
+            const changePicture = function(goToNext) {
                 const currentPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
                 const currentPictureLoader = pictureLoaderParentSelector.querySelector(`#header-loader${currentPicture}`)
 
-                currentPicture = (currentPicture + 1) % amountOfPictures
+                if (goToNext) {
+                    currentPicture = (currentPicture + 1) % amountOfPictures
+                } else if (currentPicture > 0) {
+                    currentPicture = (currentPicture - 1) % amountOfPictures
+                } else {
+                    // when its the first picture and tries to go back, module operator returns -1, so instead go to the last image
+                    currentPicture = amountOfPictures - 1
+                }
 
                 const nextPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
                 const nextPictureLoader = pictureLoaderParentSelector.querySelector(`#header-loader${currentPicture}`)
@@ -271,7 +568,6 @@
                 currentPictureLoader.classList.remove('loading')
                 currentPictureLoader.style.transform = null
                 nextPictureLoader.classList.add('loading')
-
             }
 
             // Continuar animación
@@ -294,8 +590,12 @@
             }
 
             // Comportamiento al soltar el click tras haber mantenido click brevemente en una imagen
-            const pictureClick = function () {
-                nextPicture()
+            const pictureClick = function (hasToGoToNext) {
+                if (hasToGoToNext) {
+                    nextPicture()
+                } else {
+                    prevPicture()
+                }
                 elapsed = 0
                 startMainInterval()
             }
@@ -305,48 +605,68 @@
                 startMainInterval()
             }
 
+            // Funcion que maneja el inicio del click
+            const startedClick = function(hasToGoToNext) {
+                console.log('start click')
+                isBeingClicked = true
+                const startTime = new Date()
+                pauseMainInterval()
+                const finishClickFunction = finishedClick.bind(this, startTime, hasToGoToNext)
+                document.addEventListener('dragend', finishClickFunction, { once: true })
+                document.addEventListener('mouseup', finishClickFunction, { once: true })
+            }
+
+            // Funcion que maneja el fin del click
+            const finishedClick = function(startTime, hasToGoToNext) {
+                console.log('finish click')
+                if (isBeingClicked) {
+                    isBeingClicked = false
+                    const endTime = new Date()
+                    const timeElapsed = endTime - startTime
+                    if (timeElapsed < msToInterpretClickAsHold) {
+                        pictureClick(hasToGoToNext)
+                    } else {
+                        pictureHold()
+                    }
+                }
+            }
+
+            // Funcion que maneja el inicio del touch en mobile
+            // const startedTouch = function() {
+            //     console.log('start touch')
+            //     const startTime = new Date()
+            //     pauseMainInterval()
+            //     const finishTouchFunction = finishedTouch.bind(this, startTime)
+            //     document.addEventListener('touchend', finishTouchFunction, { once: true })
+            // }
+
+            // Funcion que maneja el fin del touch en mobile
+            // const finishedTouch = function(startTime) {
+            //     console.log('finish touch')
+            //     const endTime = new Date()
+            //     const timeElapsed = endTime - startTime
+            //     if (timeElapsed < msToInterpretClickAsHold) {
+            //         pictureClick()
+            //     } else {
+            //         pictureHold()
+            //     }
+            // }
+
             //////////////////// MAIN
 
             // Delay inicial de 300ms para cargar los assets
             setTimeout(() => {
                 document.querySelector('.loading-overlay').classList.add('hidden')
-                startMainInterval()
+                !debugPaused && startMainInterval()
             }, 300);
 
             // Manejar interacción sobre las imágenes en desktop
-            pictureParentSelector.addEventListener('mousedown', () => {
-                console.log('mousedown')
-                const startTime = new Date()
-                pauseMainInterval()
-                document.addEventListener('mouseup', () => {
-                    const endTime = new Date()
-                    const timeElapsed = endTime - startTime
-                    if (timeElapsed < msToInterpretClickAsHold) {
-                        pictureClick()
-                    } else {
-                        pictureHold()
-                    }
-
-                }, { once: true })
-            })
+            prevImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, false))
+            nextImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, true))
 
             // Manejar interacción sobre las imágenes en mobile
-            pictureParentSelector.addEventListener('touchstart', () => {
-                console.log('touchstart')
-                const startTime = new Date()
-                pauseMainInterval()
-                document.addEventListener('touchend', () => {
-                    const endTime = new Date()
-                    const timeElapsed = endTime - startTime
-                    if (timeElapsed < msToInterpretClickAsHold) {
-                        pictureClick()
-                    } else {
-                        pictureHold()
-                    }
-
-                }, { once: true })
-            })
-        })()
+            // pictureParentSelector.addEventListener('touchstart', startedTouch, { once: true })
+        // })()
     </script>
 
 </body>

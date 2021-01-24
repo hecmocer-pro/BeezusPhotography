@@ -227,6 +227,10 @@
             box-shadow: 1px 1px 10px 0px black;
         }
 
+        .pictureDescription.hiddenForce {
+            display: none;
+        }
+
         @keyframes pictureDescriptionHide {
             0% {
                 transform: translate(0, 0);
@@ -449,7 +453,7 @@
     <div class="content" id="pictureParent">
         <div id="picture0" class="pictureContainer">
             <img src="TOP1.JPG" alt="" class="picture0 picture">
-            <button class="pictureDescription hidden">
+            <button class="pictureDescription hidden hiddenForce">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -792,6 +796,7 @@
                     })
                     pictureDescriptionSelectors.forEach((item) => {
                         item.classList.remove('displayed')
+                        item.classList.remove('hiddenForce')
                         requestAnimationFrame(() => {
                             item.classList.add('hidden')
                         })
@@ -804,6 +809,7 @@
                     })
                     pictureDescriptionSelectors.forEach((item) => {
                         item.classList.remove('hidden')
+                        item.classList.remove('hiddenForce')
                         requestAnimationFrame(() => {
                             item.classList.add('displayed')
                         })

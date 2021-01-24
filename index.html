@@ -195,11 +195,60 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            margin: 32px 64px;
+            margin: 32px 4vw;
+            z-index: 10;
+
+            padding: 8px 16px;
+            border-radius: 10px 10px 0 10px;
+            border: solid 1px transparent;
+
+            outline: none;
+            background: none;
+            cursor: pointer;
         }
         .pictureDescription > * {
             margin: 6px 0;
             text-align: right;
+        }
+
+        .pictureDescription.displayed {
+            animation: pictureDescriptionShow forwards 400ms;
+        }
+
+        .pictureDescription.hidden {
+            animation: pictureDescriptionHide forwards 400ms;
+        }
+
+        .pictureDescription:hover {
+            box-shadow: 1px 1px 10px 3px black;
+        }
+
+        .pictureDescription:active {
+            box-shadow: 1px 1px 10px 0px black;
+        }
+
+        @keyframes pictureDescriptionHide {
+            0% {
+                transform: translate(0, 0);
+            }
+            20% {
+                transform: translate(0, -10px);
+            }
+            100% {
+                transform: translate(0, 200px);
+            }
+        }
+
+        @keyframes pictureDescriptionShow {
+            0% {
+                transform: translate(0, 200px);
+            }
+            80% {
+                transform: translate(0, -10px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
         }
 
         #picture0 > .pictureDescription,
@@ -215,10 +264,25 @@
             text-shadow: 1px 1px black;
         }
 
+        #picture0 > .pictureDescription,
+        #picture1 > .pictureDescription,
+        #picture2 > .pictureDescription,
+        #picture4 > .pictureDescription,
+        #picture5 > .pictureDescription,
+        #picture6 > .pictureDescription,
+        #picture9 > .pictureDescription,
+        #picture10 > .pictureDescription,
+        #picture11 > .pictureDescription {
+            background-color: rgba(0,0,0,0.8);
+            border-color: black;
+        }
+
         #picture3 > .pictureDescription,
         #picture7 > .pictureDescription,
         #picture8 > .pictureDescription {
             color: black;
+            background-color: rgba(255,255,255,0.8);
+            border-color: white;
         }
 
         .pictureLocationLink {
@@ -254,28 +318,88 @@
 
         .infoButton {
             position: absolute;
-            z-index: 20;
-            border: solid 1px black;
-            border-radius: 50%;
-            bottom: 0;
-            left: 0;
+            z-index: 10;
+            bottom: 0px;
+            right: 16px;
             margin: 32px;
-            font-size: 32px;
-            width: 40px;
-            height: 40px;
-            font-family: 'Italianno';
-            font-weight: 900;
-            font-size: 46px;
-            line-height: 0;
-            letter-spacing: 0;
             outline: none;
+            background: none;
+            border: none;
+            transform: scale(2);
+            cursor: pointer;
+            transition: transform 300ms;
         }
-        .infoButton:hover {
-            background: red;
+
+        .infoButton.displayed {
+            animation: infoButtonShow forwards 400ms;
         }
-        .infoButtonI {
-            transform: translate(-2px, 1px);
-            display: inline-block;
+
+        .infoButton.hidden {
+            animation: infoButtonHide forwards 400ms;
+        }
+
+        @keyframes infoButtonHide {
+            0% {
+                transform: scale(2) translate(0, 0);
+            }
+            20% {
+                transform: scale(2) translate(0, -10px);
+            }
+            100% {
+                transform: scale(2) translate(0, 200px);
+            }
+        }
+
+        @keyframes infoButtonShow {
+            0% {
+                transform: scale(2) translate(0, 200px);
+            }
+            80% {
+                transform: scale(2) translate(0, -10px);
+            }
+            100% {
+                transform: scale(2) translate(0, 0);
+            }
+        }
+
+        .infoButton > svg {
+            border-radius: 50%;
+            border: solid 1px white;
+            transition: box-shadow 200ms, transform 200ms;
+        }
+
+        .infoButtonCirclePath {
+            transform: scale(1.2);
+            transform-origin: center;
+        }
+
+        .infoButton > svg:hover {
+            box-shadow: 1px 1px 10px 3px black;
+        }
+
+        .infoButton > svg:active {
+            box-shadow: 1px 1px 10px 0px black;
+            transform: scale(.9);
+        }
+
+        @media only screen and (max-width: 600px) {
+            .infoButton {
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+
+            .pictureDescription {
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                width: fit-content;
+            }
         }
 
     </style>
@@ -325,7 +449,7 @@
     <div class="content" id="pictureParent">
         <div id="picture0" class="pictureContainer">
             <img src="TOP1.JPG" alt="" class="picture0 picture">
-            <div class="pictureDescription">
+            <button class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -337,11 +461,11 @@
                         Addis Abeba, Ethiopia
                     </a>
                 </div>
-            </div>
+            </button>
         </div>
         <div id="picture1" class="pictureContainer hidden">
             <img src="TOP2.JPG" alt="" class="picture1 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -357,7 +481,7 @@
         </div>
         <div id="picture2" class="pictureContainer hidden">
             <img src="TOP3.JPG" alt="" class="picture2 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -373,7 +497,7 @@
         </div>
         <div id="picture3" class="pictureContainer hidden">
             <img src="TOP4.JPG" alt="" class="picture3 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -389,7 +513,7 @@
         </div>
         <div id="picture4" class="pictureContainer hidden">
             <img src="TOP5.JPG" alt="" class="picture4 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -405,7 +529,7 @@
         </div>
         <div id="picture5" class="pictureContainer hidden">
             <img src="TOP6.JPG" alt="" class="picture5 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -421,7 +545,7 @@
         </div>
         <div id="picture6" class="pictureContainer hidden">
             <img src="TOP7.JPG" alt="" class="picture6 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -437,7 +561,7 @@
         </div>
         <div id="picture7" class="pictureContainer hidden">
             <img src="TOP8.JPG" alt="" class="picture7 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -453,7 +577,7 @@
         </div>
         <div id="picture8" class="pictureContainer hidden">
             <img src="TOP9.JPG" alt="" class="picture8 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -469,7 +593,7 @@
         </div>
         <div id="picture9" class="pictureContainer hidden">
             <img src="TOP10.JPG" alt="" class="picture9 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -485,7 +609,7 @@
         </div>
         <div id="picture10" class="pictureContainer hidden">
             <img src="TOP11.JPG" alt="" class="picture10 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -501,7 +625,7 @@
         </div>
         <div id="picture11" class="pictureContainer hidden">
             <img src="TOP12.JPG" alt="" class="picture11 picture">
-            <div class="pictureDescription">
+            <div class="pictureDescription hidden">
                 <div class="pictureYear">
                     2020
                 </div>
@@ -516,8 +640,10 @@
             </div>
         </div>
     </div>
-    <button class="infoButton">
-        <span class="infoButtonI">i</span>
+    <button class="infoButton displayed">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+            <path d="M0 0h24v24H0V0z" fill="white"/>
+            <path class="infoButtonCirclePath" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
     </button>
 
     <script>
@@ -526,15 +652,20 @@
             const nextImageBtnSelector = document.querySelector(`#nextImageBtn`)
             const pictureParentSelector = document.querySelector(`#pictureParent`)
             const pictureLoaderParentSelector = document.querySelector(`#pictureLoaderParent`)
+            const infoButtonSelector = document.querySelector('.infoButton')
+            const pictureDescriptionSelectors = [ ...document.querySelectorAll('.pictureDescription') ]
+
             const amountOfPictures = pictureParentSelector.childElementCount
             const msToInterpretClickAsHold = 300
             const timeBetweenPictures = 3000
-            const debugPaused = false
+            const debugPaused = true
+            // const debugPaused = false
             let currentPicture = 0
             let elapsed = 0
             let nextPictureInterval
             let isPlaying = false
             let isBeingClicked = false
+            let isShowingInfo = false
 
             // Pasar a la siguiente imagen
             const nextPicture = function() {
@@ -652,6 +783,34 @@
             //     }
             // }
 
+            const toggleInfo = function() {
+                if (isShowingInfo) {
+                    isShowingInfo = false
+                    infoButtonSelector.classList.remove('hidden')
+                    requestAnimationFrame(() => {
+                        infoButtonSelector.classList.add('displayed')
+                    })
+                    pictureDescriptionSelectors.forEach((item) => {
+                        item.classList.remove('displayed')
+                        requestAnimationFrame(() => {
+                            item.classList.add('hidden')
+                        })
+                    })
+                } else {
+                    isShowingInfo = true
+                    infoButtonSelector.classList.remove('displayed')
+                    requestAnimationFrame(() => {
+                        infoButtonSelector.classList.add('hidden')
+                    })
+                    pictureDescriptionSelectors.forEach((item) => {
+                        item.classList.remove('hidden')
+                        requestAnimationFrame(() => {
+                            item.classList.add('displayed')
+                        })
+                    })
+                }
+            }
+
             //////////////////// MAIN
 
             // Delay inicial de 300ms para cargar los assets
@@ -663,6 +822,14 @@
             // Manejar interacción sobre las imágenes en desktop
             prevImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, false))
             nextImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, true))
+
+            // Manejar interacción sobre botón de mostrar info
+            infoButtonSelector.addEventListener('click', toggleInfo)
+
+            // Manejar interacción sobre info
+            pictureDescriptionSelectors.forEach((item) => {
+                item.addEventListener('click', toggleInfo)
+            })
 
             // Manejar interacción sobre las imágenes en mobile
             // pictureParentSelector.addEventListener('touchstart', startedTouch, { once: true })

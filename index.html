@@ -195,16 +195,17 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            margin: 32px 4vw;
+            margin: 32px 9vw;
             z-index: 10;
 
-            padding: 8px 16px;
+            padding: 16px 24px 16px 32px;
             border-radius: 10px 10px 0 10px;
             border: solid 1px transparent;
 
             outline: none;
             background: none;
             cursor: pointer;
+            transition: box-shadow 50ms;
         }
         .pictureDescription > * {
             margin: 6px 0;
@@ -219,14 +220,6 @@
             animation: pictureDescriptionHide forwards 400ms;
         }
 
-        .pictureDescription:hover {
-            box-shadow: 1px 1px 10px 3px black;
-        }
-
-        .pictureDescription:active {
-            box-shadow: 1px 1px 10px 0px black;
-        }
-
         .pictureDescription.hiddenForce {
             display: none;
         }
@@ -239,13 +232,13 @@
                 transform: translate(0, -10px);
             }
             100% {
-                transform: translate(0, 200px);
+                transform: translate(0, 300px);
             }
         }
 
         @keyframes pictureDescriptionShow {
             0% {
-                transform: translate(0, 200px);
+                transform: translate(0, 300px);
             }
             80% {
                 transform: translate(0, -10px);
@@ -277,16 +270,16 @@
         #picture9 > .pictureDescription,
         #picture10 > .pictureDescription,
         #picture11 > .pictureDescription {
-            background-color: rgba(0,0,0,0.8);
-            border-color: black;
+            background-color: rgba(0,0,0,0.85);
+            border-color: white;
         }
 
         #picture3 > .pictureDescription,
         #picture7 > .pictureDescription,
         #picture8 > .pictureDescription {
             color: black;
-            background-color: rgba(255,255,255,0.8);
-            border-color: white;
+            background-color: rgba(255,255,255,0.85);
+            border-color: black;
         }
 
         .pictureLocationLink {
@@ -320,7 +313,8 @@
             right: 0;
         }
 
-        .infoButton {
+        .infoButton,
+        .infoButtonClose {
             position: absolute;
             z-index: 10;
             bottom: 0px;
@@ -334,11 +328,13 @@
             transition: transform 300ms;
         }
 
-        .infoButton.displayed {
+        .infoButton.displayed,
+        .infoButtonClose.displayed {
             animation: infoButtonShow forwards 400ms;
         }
 
-        .infoButton.hidden {
+        .infoButton.hidden,
+        .infoButtonClose.hidden {
             animation: infoButtonHide forwards 400ms;
         }
 
@@ -372,22 +368,37 @@
             transition: box-shadow 200ms, transform 200ms;
         }
 
+        .infoButtonClose > svg {
+            transition: box-shadow 200ms, transform 200ms;
+            border-radius: 50%;
+            border: solid 1px white;
+            background-color: white;
+        }
+
+        .infoButtonCloseCross {
+            transform: scale(1.2);
+            transform-origin: center;
+        }
+
         .infoButtonCirclePath {
             transform: scale(1.2);
             transform-origin: center;
         }
 
-        .infoButton > svg:hover {
+        .infoButton > svg:hover,
+        .infoButtonClose > svg:hover {
             box-shadow: 1px 1px 10px 3px black;
         }
 
-        .infoButton > svg:active {
+        .infoButton > svg:active,
+        .infoButtonClose > svg:active {
             box-shadow: 1px 1px 10px 0px black;
             transform: scale(.9);
         }
 
         @media only screen and (max-width: 600px) {
-            .infoButton {
+            .infoButton,
+            .infoButtonClose {
                 position: absolute;
                 margin-left: auto;
                 margin-right: auto;
@@ -403,6 +414,7 @@
                 left: 0;
                 right: 0;
                 width: fit-content;
+                bottom: 64px;
             }
         }
 
@@ -647,7 +659,14 @@
     <button class="infoButton displayed">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
             <path d="M0 0h24v24H0V0z" fill="white"/>
-            <path class="infoButtonCirclePath" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+            <path class="infoButtonCirclePath" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+        </svg>
+    </button>
+    <button class="infoButtonClose hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path class="infoButtonCloseCross" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+        </svg>
     </button>
 
     <script>
@@ -657,6 +676,7 @@
             const pictureParentSelector = document.querySelector(`#pictureParent`)
             const pictureLoaderParentSelector = document.querySelector(`#pictureLoaderParent`)
             const infoButtonSelector = document.querySelector('.infoButton')
+            const infoButtonCloseSelector = document.querySelector('.infoButtonClose')
             const pictureDescriptionSelectors = [ ...document.querySelectorAll('.pictureDescription') ]
 
             const amountOfPictures = pictureParentSelector.childElementCount
@@ -791,8 +811,10 @@
                 if (isShowingInfo) {
                     isShowingInfo = false
                     infoButtonSelector.classList.remove('hidden')
+                    infoButtonCloseSelector.classList.add('hidden')
                     requestAnimationFrame(() => {
                         infoButtonSelector.classList.add('displayed')
+                        infoButtonCloseSelector.classList.remove('displayed')
                     })
                     pictureDescriptionSelectors.forEach((item) => {
                         item.classList.remove('displayed')
@@ -804,8 +826,10 @@
                 } else {
                     isShowingInfo = true
                     infoButtonSelector.classList.remove('displayed')
+                    infoButtonCloseSelector.classList.add('displayed')
                     requestAnimationFrame(() => {
                         infoButtonSelector.classList.add('hidden')
+                        infoButtonCloseSelector.classList.remove('hidden')
                     })
                     pictureDescriptionSelectors.forEach((item) => {
                         item.classList.remove('hidden')
@@ -831,11 +855,13 @@
 
             // Manejar interacción sobre botón de mostrar info
             infoButtonSelector.addEventListener('click', toggleInfo)
+            infoButtonCloseSelector.addEventListener('click', toggleInfo)
 
-            // Manejar interacción sobre info
-            pictureDescriptionSelectors.forEach((item) => {
-                item.addEventListener('click', toggleInfo)
-            })
+            // Ya no se utiliza ya que hay un botón para cerrar
+            // // Manejar interacción sobre info
+            // pictureDescriptionSelectors.forEach((item) => {
+            //     item.addEventListener('click', toggleInfo)
+            // })
 
             // Manejar interacción sobre las imágenes en mobile
             // pictureParentSelector.addEventListener('touchstart', startedTouch, { once: true })

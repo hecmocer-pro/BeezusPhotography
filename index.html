@@ -774,7 +774,7 @@
 
             // Funcion que maneja el inicio del click
             const startedClick = function(hasToGoToNext) {
-                console.log('start click')
+                // console.log('start click')
                 isBeingClicked = true
                 const startTime = new Date()
                 pauseMainInterval()
@@ -785,7 +785,7 @@
 
             // Funcion que maneja el fin del click
             const finishedClick = function(startTime, hasToGoToNext) {
-                console.log('finish click')
+                // console.log('finish click')
                 if (isBeingClicked) {
                     isBeingClicked = false
                     const endTime = new Date()
@@ -800,7 +800,7 @@
 
             // Funcion que maneja el inicio del touch en mobile
             // const startedTouch = function() {
-            //     console.log('start touch')
+            // //     console.log('start touch')
             //     const startTime = new Date()
             //     pauseMainInterval()
             //     const finishTouchFunction = finishedTouch.bind(this, startTime)
@@ -809,7 +809,7 @@
 
             // Funcion que maneja el fin del touch en mobile
             // const finishedTouch = function(startTime) {
-            //     console.log('finish touch')
+            // //     console.log('finish touch')
             //     const endTime = new Date()
             //     const timeElapsed = endTime - startTime
             //     if (timeElapsed < msToInterpretClickAsHold) {

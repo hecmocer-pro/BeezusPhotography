@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beezus | Freelance photographer</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/favicon-32x32.png?raw=true">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/favicon-16x16.png?raw=true">
-    <link rel="mask-icon" href="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/favicon-32x32.png?raw=true">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/favicon-16x16.png?raw=true">
+    <link rel="mask-icon" href="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/safari-pinned-tab.svg"
+        color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
@@ -19,6 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
 
     <style>
@@ -94,6 +100,7 @@
             width: 100vw;
             height: 100vh;
         }
+
         .pictureContainer.hidden {
             opacity: 0;
         }
@@ -155,7 +162,7 @@
             transform: scaleX(0);
         }
 
-        .header-loader.loading ~ .header-loader {
+        .header-loader.loading~.header-loader {
             transform: scaleX(0);
         }
 
@@ -168,36 +175,47 @@
         .picture0 {
             object-position: 60% 20%;
         }
+
         .picture1 {
             object-position: 45% 20%;
         }
+
         .picture2 {
             object-position: 36% 50%;
         }
+
         .picture3 {
             object-position: 50% 10%;
         }
+
         .picture4 {
             object-position: 58% 70%;
         }
+
         .picture5 {
             object-position: 46% 10%;
         }
+
         .picture6 {
             object-position: 50% 0%;
         }
+
         .picture7 {
             object-position: 37% 0%;
         }
+
         .picture8 {
             object-position: 56% 30%;
         }
+
         .picture9 {
             object-position: 63% 60%;
         }
+
         .picture10 {
             object-position: 43% 20%;
         }
+
         .picture11 {
             object-position: 40% 0%;
         }
@@ -218,7 +236,8 @@
             cursor: pointer;
             transition: box-shadow 50ms;
         }
-        .pictureDescription > * {
+
+        .pictureDescription>* {
             margin: 6px 0;
             text-align: right;
         }
@@ -239,9 +258,11 @@
             0% {
                 transform: translate(0, 0);
             }
+
             20% {
                 transform: translate(0, -10px);
             }
+
             100% {
                 transform: translate(0, 300px);
             }
@@ -251,45 +272,47 @@
             0% {
                 transform: translate(0, 300px);
             }
+
             80% {
                 transform: translate(0, -10px);
             }
+
             100% {
                 transform: translate(0, 0);
             }
         }
 
-        #picture0 > .pictureDescription,
-        #picture1 > .pictureDescription,
-        #picture2 > .pictureDescription,
-        #picture4 > .pictureDescription,
-        #picture5 > .pictureDescription,
-        #picture6 > .pictureDescription,
-        #picture9 > .pictureDescription,
-        #picture10 > .pictureDescription,
-        #picture11 > .pictureDescription {
+        #picture0>.pictureDescription,
+        #picture1>.pictureDescription,
+        #picture2>.pictureDescription,
+        #picture4>.pictureDescription,
+        #picture5>.pictureDescription,
+        #picture6>.pictureDescription,
+        #picture9>.pictureDescription,
+        #picture10>.pictureDescription,
+        #picture11>.pictureDescription {
             color: white;
             text-shadow: 1px 1px black;
         }
 
-        #picture0 > .pictureDescription,
-        #picture1 > .pictureDescription,
-        #picture2 > .pictureDescription,
-        #picture4 > .pictureDescription,
-        #picture5 > .pictureDescription,
-        #picture6 > .pictureDescription,
-        #picture9 > .pictureDescription,
-        #picture10 > .pictureDescription,
-        #picture11 > .pictureDescription {
-            background-color: rgba(0,0,0,0.85);
+        #picture0>.pictureDescription,
+        #picture1>.pictureDescription,
+        #picture2>.pictureDescription,
+        #picture4>.pictureDescription,
+        #picture5>.pictureDescription,
+        #picture6>.pictureDescription,
+        #picture9>.pictureDescription,
+        #picture10>.pictureDescription,
+        #picture11>.pictureDescription {
+            background-color: rgba(0, 0, 0, 0.85);
             border-color: white;
         }
 
-        #picture3 > .pictureDescription,
-        #picture7 > .pictureDescription,
-        #picture8 > .pictureDescription {
+        #picture3>.pictureDescription,
+        #picture7>.pictureDescription,
+        #picture8>.pictureDescription {
             color: black;
-            background-color: rgba(255,255,255,0.85);
+            background-color: rgba(255, 255, 255, 0.85);
             border-color: black;
         }
 
@@ -317,9 +340,11 @@
             height: 100vh;
             outline: none;
         }
+
         .prevImageBtn {
             left: 0;
         }
+
         .nextImageBtn {
             right: 0;
         }
@@ -353,9 +378,11 @@
             0% {
                 transform: scale(2) translate(0, 0);
             }
+
             20% {
                 transform: scale(2) translate(0, -10px);
             }
+
             100% {
                 transform: scale(2) translate(0, 200px);
             }
@@ -365,21 +392,23 @@
             0% {
                 transform: scale(2) translate(0, 200px);
             }
+
             80% {
                 transform: scale(2) translate(0, -10px);
             }
+
             100% {
                 transform: scale(2) translate(0, 0);
             }
         }
 
-        .infoButton > svg {
+        .infoButton>svg {
             border-radius: 50%;
             border: solid 1px white;
             transition: box-shadow 200ms, transform 200ms;
         }
 
-        .infoButtonClose > svg {
+        .infoButtonClose>svg {
             transition: box-shadow 200ms, transform 200ms;
             border-radius: 50%;
             border: solid 1px white;
@@ -396,18 +425,19 @@
             transform-origin: center;
         }
 
-        .infoButton > svg:hover,
-        .infoButtonClose > svg:hover {
+        .infoButton>svg:hover,
+        .infoButtonClose>svg:hover {
             box-shadow: 1px 1px 10px 3px black;
         }
 
-        .infoButton > svg:active,
-        .infoButtonClose > svg:active {
+        .infoButton>svg:active,
+        .infoButtonClose>svg:active {
             box-shadow: 1px 1px 10px 0px black;
             transform: scale(.9);
         }
 
         @media only screen and (max-width: 600px) {
+
             .infoButton,
             .infoButtonClose {
                 position: absolute;
@@ -428,445 +458,561 @@
                 bottom: 120px;
             }
         }
-
     </style>
 
     <div class="loading-overlay"></div>
 
-    <div class="header">
-        <div class="header-left">
-            <div class="beezus">Beezus</div>
-            <div class="photography">PHOTOGRAPHY</div>
+    <div class="doorContainer">
+        <div class="backDoor">
+            <div class="door">
+                <div style="font-size: 24px;">¡¡Feliz 27 cumpleaños!!</div>
+                <br>
+                <div>Abre tu regalo</div>
+                <div style="font-size: 48px;">🎁</div>
+            </div>
         </div>
-        <div class="header-right">
-            <a class="instagram-link" href="https://www.instagram.com/beezus_photography/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-    </div>
-    <div class="header-loader-placeholder-container">
-        <span class="header-loader-placeholder" id="header-loader-placeholder0"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder1"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder2"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder3"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder4"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder5"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder6"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder7"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder8"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder9"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder10"></span>
-        <span class="header-loader-placeholder" id="header-loader-placeholder11"></span>
-    </div>
-    <div class="header-loader-container" id="pictureLoaderParent">
-        <span class="header-loader loading" id="header-loader0"></span>
-        <span class="header-loader" id="header-loader1"></span>
-        <span class="header-loader" id="header-loader2"></span>
-        <span class="header-loader" id="header-loader3"></span>
-        <span class="header-loader" id="header-loader4"></span>
-        <span class="header-loader" id="header-loader5"></span>
-        <span class="header-loader" id="header-loader6"></span>
-        <span class="header-loader" id="header-loader7"></span>
-        <span class="header-loader" id="header-loader8"></span>
-        <span class="header-loader" id="header-loader9"></span>
-        <span class="header-loader" id="header-loader10"></span>
-        <span class="header-loader" id="header-loader11"></span>
     </div>
 
-    <button id="prevImageBtn" class="imageControlBtn prevImageBtn"></button>
-    <button id="nextImageBtn" class="imageControlBtn nextImageBtn"></button>
-    <div class="content" id="pictureParent">
-        <div id="picture0" class="pictureContainer">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/1_xs.jpg?raw=true" alt="" class="picture0 picture">
-            <button class="pictureDescription hidden hiddenForce">
-                <div class="pictureYear">
-                    2017
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/10, 1/80s, 300mm, ISO 400
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </button>
+    <style>
+        .backDoor {
+            background-color: #333333;
+            position: relative;
+            width: 300px;
+            height: 500px;
+            margin: 0 auto;
+            margin-top: 50px;
+            transition: transform 2s;
+        }
+
+        .backDoor.doorOpen {
+            transform: scale(10);
+        }
+
+        .door {
+            background-color: aquamarine;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 300px;
+            height: 500px;
+            transform-origin: left;
+            /*Speed of the Door animation*/
+            transition: transform 0.5s ease-in-out;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Andika New Basic', sans-serif;
+
+            border: solid 1px black;
+            border-bottom: solid 2px black;
+            border-right: solid 3px black;
+        }
+
+        .door.doorOpen {
+            /*prespectiv creates the door open effect*/
+            transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
+        }
+
+        .maincontent {
+            opacity: 1;
+            transition: opacity 2s;
+        }
+
+        .maincontent.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 2s;
+        }
+
+        .doorContainer {
+            background: #eee;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+
+    <div class="maincontent hidden">
+        <div class="header">
+            <div class="header-left">
+                <div class="beezus">Beezus</div>
+                <div class="photography">PHOTOGRAPHY</div>
+            </div>
+            <div class="header-right">
+                <a class="instagram-link" href="https://www.instagram.com/beezus_photography/" target="_blank"
+                    rel="noopener">Instagram</a>
+            </div>
         </div>
-        <div id="picture1" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/2_xs.jpg?raw=true" alt="" class="picture1 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2019
+        <div class="header-loader-placeholder-container">
+            <span class="header-loader-placeholder" id="header-loader-placeholder0"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder1"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder2"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder3"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder4"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder5"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder6"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder7"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder8"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder9"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder10"></span>
+            <span class="header-loader-placeholder" id="header-loader-placeholder11"></span>
+        </div>
+        <div class="header-loader-container" id="pictureLoaderParent">
+            <span class="header-loader loading" id="header-loader0"></span>
+            <span class="header-loader" id="header-loader1"></span>
+            <span class="header-loader" id="header-loader2"></span>
+            <span class="header-loader" id="header-loader3"></span>
+            <span class="header-loader" id="header-loader4"></span>
+            <span class="header-loader" id="header-loader5"></span>
+            <span class="header-loader" id="header-loader6"></span>
+            <span class="header-loader" id="header-loader7"></span>
+            <span class="header-loader" id="header-loader8"></span>
+            <span class="header-loader" id="header-loader9"></span>
+            <span class="header-loader" id="header-loader10"></span>
+            <span class="header-loader" id="header-loader11"></span>
+        </div>
+
+        <button id="prevImageBtn" class="imageControlBtn prevImageBtn"></button>
+        <button id="nextImageBtn" class="imageControlBtn nextImageBtn"></button>
+        <div class="content" id="pictureParent">
+            <div id="picture0" class="pictureContainer">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/1_xs.jpg?raw=true" alt=""
+                    class="picture0 picture">
+                <button class="pictureDescription hidden hiddenForce">
+                    <div class="pictureYear">
+                        2017
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/10, 1/80s, 300mm, ISO 400
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
+                </button>
+            </div>
+            <div id="picture1" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/2_xs.jpg?raw=true" alt=""
+                    class="picture1 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2019
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/10, 1/1000s, 110mm, ISO 400
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
                 </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/10, 1/1000s, 110mm, ISO 400
+            </div>
+            <div id="picture2" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/3_xs.jpg?raw=true" alt=""
+                    class="picture2 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2014
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/7.1, 1/250s, 140mm, ISO 200
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
                 </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
+            </div>
+            <div id="picture3" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/4_xs.jpg?raw=true" alt=""
+                    class="picture3 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2014
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/5.6, 1/250s, 205mm, ISO 200
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="picture4" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/5_xs.jpg?raw=true" alt=""
+                    class="picture4 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2014
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/8, 1/400s, 160mm, ISO 200
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="picture5" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/6_xs.jpg?raw=true" alt=""
+                    class="picture5 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2019
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/10, 1/160s, 400mm, ISO 400
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="picture6" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/7_xs.jpg?raw=true" alt=""
+                    class="picture6 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2014
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/7.1, 1/500s, 260mm, ISO 125
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="picture7" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/8_xs.jpg?raw=true" alt=""
+                    class="picture7 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2019
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/6.3, 1/200s, 180mm, ISO 400
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="picture8" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/9_xs.jpg?raw=true" alt=""
+                    class="picture8 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2017
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/8, 1/500s, 300mm, ISO 125
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="picture9" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/10_xs.jpg?raw=true"
+                    alt="" class="picture9 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2019
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/6.4, 1/1580s, 400mm, ISO 1600
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="picture10" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/11_xs.jpg?raw=true"
+                    alt="" class="picture10 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2019
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/10, 1/100s, 300mm, ISO 1600
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="picture11" class="pictureContainer hidden">
+                <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/12_xs.jpg?raw=true"
+                    alt="" class="picture11 picture">
+                <div class="pictureDescription hidden">
+                    <div class="pictureYear">
+                        2017
+                    </div>
+                    <div class="pictureSpecs">
+                        EOS 1000D, f/10, 1/160s, 150mm, ISO 400
+                    </div>
+                    <div class="pictureLocation">
+                        <a class="pictureLocationLink"
+                            href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605"
+                            target="_blank" rel="noopener">
+                            Addis Abeba, Ethiopia
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="picture2" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/3_xs.jpg?raw=true" alt="" class="picture2 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2014
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/7.1, 1/250s, 140mm, ISO 200
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="picture3" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/4_xs.jpg?raw=true" alt="" class="picture3 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2014
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/5.6, 1/250s, 205mm, ISO 200
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="picture4" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/5_xs.jpg?raw=true" alt="" class="picture4 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2014
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/8, 1/400s, 160mm, ISO 200
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="picture5" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/6_xs.jpg?raw=true" alt="" class="picture5 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2019
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/10, 1/160s, 400mm, ISO 400
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="picture6" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/7_xs.jpg?raw=true" alt="" class="picture6 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2014
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/7.1, 1/500s, 260mm, ISO 125
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="picture7" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/8_xs.jpg?raw=true" alt="" class="picture7 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2019
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/6.3, 1/200s, 180mm, ISO 400
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="picture8" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/9_xs.jpg?raw=true" alt="" class="picture8 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2017
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/8, 1/500s, 300mm, ISO 125
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="picture9" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/10_xs.jpg?raw=true" alt="" class="picture9 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2019
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/6.4, 1/1580s, 400mm, ISO 1600
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="picture10" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/11_xs.jpg?raw=true" alt="" class="picture10 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2019
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/10, 1/100s, 300mm, ISO 1600
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="picture11" class="pictureContainer hidden">
-            <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/12_xs.jpg?raw=true" alt="" class="picture11 picture">
-            <div class="pictureDescription hidden">
-                <div class="pictureYear">
-                    2017
-                </div>
-                <div class="pictureSpecs">
-                    EOS 1000D, f/10, 1/160s, 150mm, ISO 400
-                </div>
-                <div class="pictureLocation">
-                    <a class="pictureLocationLink" href="https://www.google.com/maps/place/Addis+Ababa,+Ethiopia/@8.9633398,38.7081047,12z/data=!3m1!4b1!4m5!3m4!1s0x164b85cef5ab402d:0x8467b6b037a24d49!8m2!3d8.9806034!4d38.7577605" target="_blank" rel="noopener">
-                        Addis Abeba, Ethiopia
-                    </a>
-                </div>
-            </div>
-        </div>
+        <button class="infoButton displayed">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0V0z" fill="white" />
+                <path class="infoButtonCirclePath"
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
+            </svg>
+        </button>
+        <button class="infoButtonClose hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path class="infoButtonCloseCross"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z" />
+            </svg>
+        </button>
     </div>
-    <button class="infoButton displayed">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-            <path d="M0 0h24v24H0V0z" fill="white"/>
-            <path class="infoButtonCirclePath" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
-        </svg>
-    </button>
-    <button class="infoButtonClose hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-            <path d="M0 0h24v24H0z" fill="none"/>
-            <path class="infoButtonCloseCross" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
-        </svg>
-    </button>
 
     <script>
         // (function() {
-            const prevImageBtnSelector = document.querySelector(`#prevImageBtn`)
-            const nextImageBtnSelector = document.querySelector(`#nextImageBtn`)
-            const pictureParentSelector = document.querySelector(`#pictureParent`)
-            const pictureLoaderParentSelector = document.querySelector(`#pictureLoaderParent`)
-            const infoButtonSelector = document.querySelector('.infoButton')
-            const infoButtonCloseSelector = document.querySelector('.infoButtonClose')
-            const pictureDescriptionSelectors = [ ...document.querySelectorAll('.pictureDescription') ]
+        const prevImageBtnSelector = document.querySelector(`#prevImageBtn`)
+        const nextImageBtnSelector = document.querySelector(`#nextImageBtn`)
+        const pictureParentSelector = document.querySelector(`#pictureParent`)
+        const pictureLoaderParentSelector = document.querySelector(`#pictureLoaderParent`)
+        const infoButtonSelector = document.querySelector('.infoButton')
+        const infoButtonCloseSelector = document.querySelector('.infoButtonClose')
+        const pictureDescriptionSelectors = [...document.querySelectorAll('.pictureDescription')]
 
-            const amountOfPictures = pictureParentSelector.childElementCount
-            const msToInterpretClickAsHold = 300
-            const timeBetweenPictures = 4000
-            // const debugPaused = true
-            const debugPaused = false
-            let currentPicture = 0
-            let elapsed = 0
-            let nextPictureInterval
-            let isPlaying = false
-            let isBeingClicked = false
-            let isShowingInfo = false
+        const amountOfPictures = pictureParentSelector.childElementCount
+        const msToInterpretClickAsHold = 300
+        const timeBetweenPictures = 4000
+        // const debugPaused = true
+        const debugPaused = false
+        let currentPicture = 0
+        let elapsed = 0
+        let nextPictureInterval
+        let isPlaying = false
+        let isBeingClicked = false
+        let isShowingInfo = false
 
-            // Pasar a la siguiente imagen
-            const nextPicture = function() {
-                changePicture(true)
+        // Pasar a la siguiente imagen
+        const nextPicture = function () {
+            changePicture(true)
+        }
+
+        // Pasar a la imagen anterior
+        const prevPicture = function () {
+            changePicture(false)
+        }
+
+        const changePicture = function (goToNext) {
+            const currentPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
+            const currentPictureLoader = pictureLoaderParentSelector.querySelector(`#header-loader${currentPicture}`)
+
+            if (goToNext) {
+                currentPicture = (currentPicture + 1) % amountOfPictures
+            } else if (currentPicture > 0) {
+                currentPicture = (currentPicture - 1) % amountOfPictures
+            } else {
+                // when its the first picture and tries to go back, module operator returns -1, so instead go to the last image
+                currentPicture = amountOfPictures - 1
             }
 
-            // Pasar a la imagen anterior
-            const prevPicture = function() {
-                changePicture(false)
-            }
+            const nextPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
+            const nextPictureLoader = pictureLoaderParentSelector.querySelector(`#header-loader${currentPicture}`)
 
-            const changePicture = function(goToNext) {
-                const currentPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
-                const currentPictureLoader = pictureLoaderParentSelector.querySelector(`#header-loader${currentPicture}`)
+            currentPictureNode.classList.add('hidden')
+            nextPictureNode.classList.remove('hidden')
 
-                if (goToNext) {
-                    currentPicture = (currentPicture + 1) % amountOfPictures
-                } else if (currentPicture > 0) {
-                    currentPicture = (currentPicture - 1) % amountOfPictures
-                } else {
-                    // when its the first picture and tries to go back, module operator returns -1, so instead go to the last image
-                    currentPicture = amountOfPictures - 1
-                }
+            currentPictureLoader.classList.remove('loading')
+            currentPictureLoader.style.transform = null
+            nextPictureLoader.classList.add('loading')
+        }
 
-                const nextPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
-                const nextPictureLoader = pictureLoaderParentSelector.querySelector(`#header-loader${currentPicture}`)
-
-                currentPictureNode.classList.add('hidden')
-                nextPictureNode.classList.remove('hidden')
-
-                currentPictureLoader.classList.remove('loading')
-                currentPictureLoader.style.transform = null
-                nextPictureLoader.classList.add('loading')
-            }
-
-            // Continuar animación
-            const startMainInterval = function () {
-                isPlaying = true
-                nextPictureInterval = setInterval(() => {
-                    elapsed = elapsed + 10
-                    document.querySelector(`#header-loader${currentPicture}`).style.transform = `scaleX(${(elapsed / timeBetweenPictures)})`
-                    if (elapsed === timeBetweenPictures) {
-                        elapsed = 0
-                        nextPicture()
-                    }
-                }, 10);
-            }
-
-            // Pausar animación
-            const pauseMainInterval = function() {
-                isPlaying = true
-                clearInterval(nextPictureInterval)
-            }
-
-            // Comportamiento al soltar el click tras haber mantenido click brevemente en una imagen
-            const pictureClick = function (hasToGoToNext) {
-                if (hasToGoToNext) {
+        // Continuar animación
+        const startMainInterval = function () {
+            isPlaying = true
+            nextPictureInterval = setInterval(() => {
+                elapsed = elapsed + 10
+                document.querySelector(`#header-loader${currentPicture}`).style.transform = `scaleX(${(elapsed / timeBetweenPictures)})`
+                if (elapsed === timeBetweenPictures) {
+                    elapsed = 0
                     nextPicture()
+                }
+            }, 10);
+        }
+
+        // Pausar animación
+        const pauseMainInterval = function () {
+            isPlaying = true
+            clearInterval(nextPictureInterval)
+        }
+
+        // Comportamiento al soltar el click tras haber mantenido click brevemente en una imagen
+        const pictureClick = function (hasToGoToNext) {
+            if (hasToGoToNext) {
+                nextPicture()
+            } else {
+                prevPicture()
+            }
+            elapsed = 0
+            startMainInterval()
+        }
+
+        // Comportamiento al soltar el click tras haber mantenido click durante un rato en una imagen
+        const pictureHold = function () {
+            startMainInterval()
+        }
+
+        // Funcion que maneja el inicio del click
+        const startedClick = function (hasToGoToNext) {
+            // console.log('start click')
+            isBeingClicked = true
+            const startTime = new Date()
+            pauseMainInterval()
+            const finishClickFunction = finishedClick.bind(this, startTime, hasToGoToNext)
+            document.addEventListener('dragend', finishClickFunction, { once: true })
+            document.addEventListener('mouseup', finishClickFunction, { once: true })
+        }
+
+        // Funcion que maneja el fin del click
+        const finishedClick = function (startTime, hasToGoToNext) {
+            // console.log('finish click')
+            if (isBeingClicked) {
+                isBeingClicked = false
+                const endTime = new Date()
+                const timeElapsed = endTime - startTime
+                if (timeElapsed < msToInterpretClickAsHold) {
+                    pictureClick(hasToGoToNext)
                 } else {
-                    prevPicture()
-                }
-                elapsed = 0
-                startMainInterval()
-            }
-
-            // Comportamiento al soltar el click tras haber mantenido click durante un rato en una imagen
-            const pictureHold = function() {
-                startMainInterval()
-            }
-
-            // Funcion que maneja el inicio del click
-            const startedClick = function(hasToGoToNext) {
-                // console.log('start click')
-                isBeingClicked = true
-                const startTime = new Date()
-                pauseMainInterval()
-                const finishClickFunction = finishedClick.bind(this, startTime, hasToGoToNext)
-                document.addEventListener('dragend', finishClickFunction, { once: true })
-                document.addEventListener('mouseup', finishClickFunction, { once: true })
-            }
-
-            // Funcion que maneja el fin del click
-            const finishedClick = function(startTime, hasToGoToNext) {
-                // console.log('finish click')
-                if (isBeingClicked) {
-                    isBeingClicked = false
-                    const endTime = new Date()
-                    const timeElapsed = endTime - startTime
-                    if (timeElapsed < msToInterpretClickAsHold) {
-                        pictureClick(hasToGoToNext)
-                    } else {
-                        pictureHold()
-                    }
+                    pictureHold()
                 }
             }
+        }
 
-            // Funcion que maneja el inicio del touch en mobile
-            // const startedTouch = function() {
-            // //     console.log('start touch')
-            //     const startTime = new Date()
-            //     pauseMainInterval()
-            //     const finishTouchFunction = finishedTouch.bind(this, startTime)
-            //     document.addEventListener('touchend', finishTouchFunction, { once: true })
-            // }
+        // Funcion que maneja el inicio del touch en mobile
+        // const startedTouch = function() {
+        // //     console.log('start touch')
+        //     const startTime = new Date()
+        //     pauseMainInterval()
+        //     const finishTouchFunction = finishedTouch.bind(this, startTime)
+        //     document.addEventListener('touchend', finishTouchFunction, { once: true })
+        // }
 
-            // Funcion que maneja el fin del touch en mobile
-            // const finishedTouch = function(startTime) {
-            // //     console.log('finish touch')
-            //     const endTime = new Date()
-            //     const timeElapsed = endTime - startTime
-            //     if (timeElapsed < msToInterpretClickAsHold) {
-            //         pictureClick()
-            //     } else {
-            //         pictureHold()
-            //     }
-            // }
+        // Funcion que maneja el fin del touch en mobile
+        // const finishedTouch = function(startTime) {
+        // //     console.log('finish touch')
+        //     const endTime = new Date()
+        //     const timeElapsed = endTime - startTime
+        //     if (timeElapsed < msToInterpretClickAsHold) {
+        //         pictureClick()
+        //     } else {
+        //         pictureHold()
+        //     }
+        // }
 
-            const toggleInfo = function() {
-                if (isShowingInfo) {
-                    isShowingInfo = false
-                    infoButtonSelector.classList.remove('hidden')
-                    infoButtonCloseSelector.classList.add('hidden')
+        const toggleInfo = function () {
+            if (isShowingInfo) {
+                isShowingInfo = false
+                infoButtonSelector.classList.remove('hidden')
+                infoButtonCloseSelector.classList.add('hidden')
+                requestAnimationFrame(() => {
+                    infoButtonSelector.classList.add('displayed')
+                    infoButtonCloseSelector.classList.remove('displayed')
+                })
+                pictureDescriptionSelectors.forEach((item) => {
+                    item.classList.remove('displayed')
+                    item.classList.remove('hiddenForce')
                     requestAnimationFrame(() => {
-                        infoButtonSelector.classList.add('displayed')
-                        infoButtonCloseSelector.classList.remove('displayed')
+                        item.classList.add('hidden')
                     })
-                    pictureDescriptionSelectors.forEach((item) => {
-                        item.classList.remove('displayed')
-                        item.classList.remove('hiddenForce')
-                        requestAnimationFrame(() => {
-                            item.classList.add('hidden')
-                        })
-                    })
-                } else {
-                    isShowingInfo = true
-                    infoButtonSelector.classList.remove('displayed')
-                    infoButtonCloseSelector.classList.add('displayed')
+                })
+            } else {
+                isShowingInfo = true
+                infoButtonSelector.classList.remove('displayed')
+                infoButtonCloseSelector.classList.add('displayed')
+                requestAnimationFrame(() => {
+                    infoButtonSelector.classList.add('hidden')
+                    infoButtonCloseSelector.classList.remove('hidden')
+                })
+                pictureDescriptionSelectors.forEach((item) => {
+                    item.classList.remove('hidden')
+                    item.classList.remove('hiddenForce')
                     requestAnimationFrame(() => {
-                        infoButtonSelector.classList.add('hidden')
-                        infoButtonCloseSelector.classList.remove('hidden')
+                        item.classList.add('displayed')
                     })
-                    pictureDescriptionSelectors.forEach((item) => {
-                        item.classList.remove('hidden')
-                        item.classList.remove('hiddenForce')
-                        requestAnimationFrame(() => {
-                            item.classList.add('displayed')
-                        })
-                    })
-                }
+                })
             }
+        }
 
-            //////////////////// MAIN
+        //////////////////// MAIN
 
-            // Delay inicial de 300ms para cargar los assets
-            setTimeout(() => {
-                document.querySelector('.loading-overlay').classList.add('hidden')
-                !debugPaused && startMainInterval()
-            }, 300);
+        // Delay inicial de 300ms para cargar los assets
+        setTimeout(() => {
+            document.querySelector('.loading-overlay').classList.add('hidden')
+            // !debugPaused && startMainInterval()
+        }, 300);
 
-            // Manejar interacción sobre las imágenes en desktop
-            prevImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, false))
-            nextImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, true))
+        // Manejar interacción sobre las imágenes en desktop
+        prevImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, false))
+        nextImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, true))
 
-            // Manejar interacción sobre botón de mostrar info
-            infoButtonSelector.addEventListener('click', toggleInfo)
-            infoButtonCloseSelector.addEventListener('click', toggleInfo)
+        // Manejar interacción sobre botón de mostrar info
+        infoButtonSelector.addEventListener('click', toggleInfo)
+        infoButtonCloseSelector.addEventListener('click', toggleInfo)
 
             // Ya no se utiliza ya que hay un botón para cerrar
             // // Manejar interacción sobre info
@@ -879,5 +1025,71 @@
         // })()
     </script>
 
+    <script>
+        const door = document.querySelector(".door");
+        const backdoor = document.querySelector(".backDoor");
+        const maincontent = document.querySelector(".maincontent");
+
+        door.addEventListener("click", toggleDoor);
+
+        function toggleDoor() {
+            door.classList.toggle("doorOpen");
+            setTimeout(() => {
+                backdoor.classList.toggle("doorOpen");
+                setTimeout(() => {
+                    fireConfetti()
+                    setTimeout(() => {
+                        maincontent.classList.remove('hidden')
+                        setTimeout(() => {
+                            startMainInterval()
+                        }, 500);
+                    }, 300)
+                }, 700)
+            }, 500)
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var count = 200;
+        var defaults = {
+            origin: { y: 0.7 }
+        };
+
+        function fire(particleRatio, opts) {
+            confetti(Object.assign({}, defaults, opts, {
+                particleCount: Math.floor(count * particleRatio)
+            }));
+        }
+
+        function fireConfetti() {
+            fire(0.25, {
+                spread: 26,
+                startVelocity: 55,
+            });
+            fire(0.2, {
+                spread: 60,
+            });
+            fire(0.35, {
+                spread: 100,
+                decay: 0.91,
+                scalar: 0.8
+            });
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 25,
+                decay: 0.92,
+                scalar: 1.2
+            });
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 45,
+            });
+        }
+    </script>
+
+
 </body>
+
 </html>

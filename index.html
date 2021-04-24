@@ -74,6 +74,8 @@
             height: 100vh;
             width: 100vw;
             overflow: hidden;
+            /* position: absolute;
+            z-index: 5 */
         }
 
         .instagram-link {
@@ -104,7 +106,7 @@
             position: absolute;
             background-color: black;
             opacity: 1;
-            z-index: 1;
+            z-index: 6;
             transition: opacity 700ms;
         }
 
@@ -118,7 +120,7 @@
             height: 6px;
             line-height: 0;
             position: absolute;
-            z-index: 1;
+            z-index: 6;
         }
 
         .header-loader-placeholder {
@@ -137,7 +139,7 @@
             transform-origin: left;
             line-height: 0;
             position: absolute;
-            z-index: 2;
+            z-index: 7;
         }
 
         .header-loader {
@@ -207,7 +209,7 @@
             bottom: 0;
             right: 0;
             margin: 32px 9vw;
-            z-index: 10;
+            /* z-index: 20; */
 
             padding: 16px 24px 16px 32px;
             border-radius: 10px 10px 0 10px;
@@ -312,7 +314,7 @@
             background: transparent;
             border: none;
             position: absolute;
-            z-index: 10;
+            z-index: 15;
             width: 50vw;
             height: 100vh;
             outline: none;
@@ -327,7 +329,7 @@
         .infoButton,
         .infoButtonClose {
             position: absolute;
-            z-index: 10;
+            z-index: 15;
             bottom: 0px;
             right: 16px;
             margin: 32px;
@@ -450,6 +452,20 @@
             }
         }
 
+        .loading-underlay {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Andika New Basic';
+            font-size: 24px;
+        }
+
     </style>
 
     <div class="resolution-overlay">
@@ -458,6 +474,10 @@
     </div>
 
     <div class="loading-overlay"></div>
+
+    <div class="loading-underlay">
+        Loading image...
+    </div>
 
     <div class="header">
         <div class="header-left">
@@ -708,6 +728,9 @@
 
     <script>
         // (function() {
+            const isDebug = true
+
+
             const prevImageBtnSelector = document.querySelector(`#prevImageBtn`)
             const nextImageBtnSelector = document.querySelector(`#nextImageBtn`)
             const pictureParentSelector = document.querySelector(`#pictureParent`)
@@ -719,8 +742,7 @@
             const amountOfPictures = pictureParentSelector.childElementCount
             const msToInterpretClickAsHold = 300
             const timeBetweenPictures = 4000
-            const debugPaused = true
-            // const debugPaused = false
+            const debugPaused = isDebug
             let currentPicture = 0
             let elapsed = 0
             let nextPictureInterval
@@ -754,8 +776,20 @@
                 const nextPictureNode = pictureParentSelector.querySelector(`#picture${currentPicture}`)
                 const nextPictureLoader = pictureLoaderParentSelector.querySelector(`#header-loader${currentPicture}`)
 
-                currentPictureNode.classList.add('hidden')
-                nextPictureNode.classList.remove('hidden')
+                if (goToNext) {
+                    setTimeout(() => {
+                        currentPictureNode.classList.add('hidden')
+                    }, 500)
+                    nextPictureNode.classList.remove('hidden')
+                } else {
+                    setTimeout(() => {
+                        nextPictureNode.style.transition = null
+                    }, 50) // timeout arbitrario para evitar que se quite la transicion al ir para atrás muy rápido
+
+                    nextPictureNode.style.transition = 'none'
+                    currentPictureNode.classList.add('hidden')
+                    nextPictureNode.classList.remove('hidden')
+                }
 
                 currentPictureLoader.classList.remove('loading')
                 currentPictureLoader.style.transform = null
@@ -803,7 +837,7 @@
             // Funcion que maneja el inicio del click
             const startedClick = function(hasToGoToNext) {
                 isClicking = true
-                console.log('start click', {
+                isDebug && console.log('start click', {
                     isTouching,
                     isClicking
                 })
@@ -818,7 +852,7 @@
             // Funcion que maneja el fin del click
             const finishedClick = function(startTime, hasToGoToNext) {
                 isClicking = false
-                console.log('finish click', {
+                isDebug && console.log('finish click', {
                     isTouching,
                     isClicking
                 })
@@ -837,7 +871,7 @@
             // Funcion que maneja el inicio del touch en mobile
             const startedTouch = function(hasToGoToNext) {
                 isTouching = true
-                console.log('start touch', {
+                isDebug && console.log('start touch', {
                     isTouching,
                     isClicking
                 })
@@ -849,18 +883,11 @@
                 document.addEventListener('touchmove', finishClickFunction, { once: true })
                 document.addEventListener('touchcancel', finishClickFunction, { once: true })
             }
-            // const startedTouch = function() {
-            // //     console.log('start touch')
-            //     const startTime = new Date()
-            //     pauseMainInterval()
-            //     const finishTouchFunction = finishedTouch.bind(this, startTime)
-            //     document.addEventListener('touchend', finishTouchFunction, { once: true })
-            // }
 
             // Funcion que maneja el fin del touch en mobile
             const finishedTouch = function(startTime, hasToGoToNext) {
                 isTouching = false
-                console.log('finish touch', {
+                isDebug && console.log('finish touch', {
                     isTouching,
                     isClicking
                 })
@@ -875,16 +902,6 @@
                     }
                 }
             }
-            // const finishedTouch = function(startTime) {
-            // //     console.log('finish touch')
-            //     const endTime = new Date()
-            //     const timeElapsed = endTime - startTime
-            //     if (timeElapsed < msToInterpretClickAsHold) {
-            //         pictureClick()
-            //     } else {
-            //         pictureHold()
-            //     }
-            // }
 
             const toggleInfo = function() {
                 if (isShowingInfo) {

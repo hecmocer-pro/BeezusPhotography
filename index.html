@@ -797,9 +797,16 @@
                 startMainInterval()
             }
 
+            let isTouching = false
+            let isClicking = false
+
             // Funcion que maneja el inicio del click
             const startedClick = function(hasToGoToNext) {
-                console.log('start click')
+                isClicking = true
+                console.log('start click', {
+                    isTouching,
+                    isClicking
+                })
                 isBeingClicked = true
                 const startTime = new Date()
                 pauseMainInterval()
@@ -810,7 +817,11 @@
 
             // Funcion que maneja el fin del click
             const finishedClick = function(startTime, hasToGoToNext) {
-                console.log('finish click')
+                isClicking = false
+                console.log('finish click', {
+                    isTouching,
+                    isClicking
+                })
                 if (isBeingClicked) {
                     isBeingClicked = false
                     const endTime = new Date()
@@ -824,6 +835,20 @@
             }
 
             // Funcion que maneja el inicio del touch en mobile
+            const startedTouch = function(hasToGoToNext) {
+                isTouching = true
+                console.log('start touch', {
+                    isTouching,
+                    isClicking
+                })
+                isBeingClicked = true
+                const startTime = new Date()
+                pauseMainInterval()
+                const finishClickFunction = finishedTouch.bind(this, startTime, hasToGoToNext)
+                document.addEventListener('touchend', finishClickFunction, { once: true })
+                document.addEventListener('touchmove', finishClickFunction, { once: true })
+                document.addEventListener('touchcancel', finishClickFunction, { once: true })
+            }
             // const startedTouch = function() {
             // //     console.log('start touch')
             //     const startTime = new Date()
@@ -833,6 +858,23 @@
             // }
 
             // Funcion que maneja el fin del touch en mobile
+            const finishedTouch = function(startTime, hasToGoToNext) {
+                isTouching = false
+                console.log('finish touch', {
+                    isTouching,
+                    isClicking
+                })
+                if (isBeingClicked) {
+                    isBeingClicked = false
+                    const endTime = new Date()
+                    const timeElapsed = endTime - startTime
+                    if (timeElapsed < msToInterpretClickAsHold) {
+                        pictureClick(hasToGoToNext)
+                    } else {
+                        pictureHold()
+                    }
+                }
+            }
             // const finishedTouch = function(startTime) {
             // //     console.log('finish touch')
             //     const endTime = new Date()
@@ -878,6 +920,12 @@
                 }
             }
 
+            function isTouchDevice() {
+                return (('ontouchstart' in window) ||
+                    (navigator.maxTouchPoints > 0) ||
+                    (navigator.msMaxTouchPoints > 0));
+            }
+
             //////////////////// MAIN
 
             // Delay inicial de 300ms para cargar los assets
@@ -886,9 +934,15 @@
                 !debugPaused && startMainInterval()
             }, 300);
 
-            // Manejar interacción sobre las imágenes en desktop
-            prevImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, false))
-            nextImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, true))
+            if (isTouchDevice()) {
+                // Manejar interacción sobre las imágenes en touchscreen
+                prevImageBtnSelector.addEventListener('touchstart', startedTouch.bind(this, false))
+                nextImageBtnSelector.addEventListener('touchstart', startedTouch.bind(this, true))
+            } else {
+                // Manejar interacción sobre las imágenes en desktop
+                prevImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, false))
+                nextImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, true))
+            }
 
             // Manejar interacción sobre botón de mostrar info
             infoButtonSelector.addEventListener('click', toggleInfo)

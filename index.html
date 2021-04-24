@@ -243,13 +243,13 @@
                 transform: translate(0, -10px);
             }
             100% {
-                transform: translate(0, 300px);
+                transform: translate(0, 400px);
             }
         }
 
         @keyframes pictureDescriptionShow {
             0% {
-                transform: translate(0, 300px);
+                transform: translate(0, 400px);
             }
             80% {
                 transform: translate(0, -10px);
@@ -425,7 +425,7 @@
                 left: 0;
                 right: 0;
                 width: fit-content;
-                bottom: 60px;
+                bottom: 120px;
             }
         }
 
@@ -799,7 +799,7 @@
 
             // Funcion que maneja el inicio del click
             const startedClick = function(hasToGoToNext) {
-                // console.log('start click')
+                console.log('start click')
                 isBeingClicked = true
                 const startTime = new Date()
                 pauseMainInterval()
@@ -810,7 +810,7 @@
 
             // Funcion que maneja el fin del click
             const finishedClick = function(startTime, hasToGoToNext) {
-                // console.log('finish click')
+                console.log('finish click')
                 if (isBeingClicked) {
                     isBeingClicked = false
                     const endTime = new Date()

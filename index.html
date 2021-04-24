@@ -425,11 +425,37 @@
                 left: 0;
                 right: 0;
                 width: fit-content;
-                bottom: 120px;
+                bottom: 60px;
+            }
+        }
+
+        .resolution-overlay {
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            z-index: 99999;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            font-family: 'Andika New Basic';
+            flex-direction: column;
+        }
+
+        @media only screen and (max-width: 250px),
+        only screen and (max-height: 250px) {
+            .resolution-overlay {
+                display: flex;
             }
         }
 
     </style>
+
+    <div class="resolution-overlay">
+        <div>Not enough screen size,</div>
+        <div>Please try on a bigger device.</div>
+    </div>
 
     <div class="loading-overlay"></div>
 
@@ -693,8 +719,8 @@
             const amountOfPictures = pictureParentSelector.childElementCount
             const msToInterpretClickAsHold = 300
             const timeBetweenPictures = 4000
-            // const debugPaused = true
-            const debugPaused = false
+            const debugPaused = true
+            // const debugPaused = false
             let currentPicture = 0
             let elapsed = 0
             let nextPictureInterval

@@ -324,6 +324,25 @@
         .nextImageBtn {
             right: 0;
         }
+        .prevAndNextImageText {
+            font-size: 480px;
+            transform: scale(1,2);
+            font-family: 'Italianno';
+            background-color: rgba(255,255,255,0.2);
+            text-shadow: 0 0 0 transparent;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 500ms, color 500ms, text-shadow 500ms;
+        }
+        .prevAndNextImageText.hidden {
+            background-color: transparent;
+            color: transparent;
+            text-shadow: 0 0 0 transparent;
+        }
 
         .infoButton,
         .infoButtonClose {
@@ -516,8 +535,16 @@
         <span class="header-loader" id="header-loader11"></span>
     </div>
 
-    <button id="prevImageBtn" class="imageControlBtn prevImageBtn"></button>
-    <button id="nextImageBtn" class="imageControlBtn nextImageBtn"></button>
+    <button id="prevImageBtn" class="imageControlBtn prevImageBtn">
+        <div class="prevAndNextImageText hidden">
+            <
+        </div>
+    </button>
+    <button id="nextImageBtn" class="imageControlBtn nextImageBtn">
+        <div class="prevAndNextImageText hidden">
+            >
+        </div>
+    </button>
     <div class="content" id="pictureParent">
         <div id="picture0" class="pictureContainer">
             <img src="https://github.com/hecmocer-pro/BeezusPhotography/blob/main/Pictures/1_xs.jpg?raw=true" alt="" class="picture0 picture">
@@ -765,11 +792,13 @@
 
             // Pasar a la siguiente imagen
             const nextPicture = function() {
+                // animatePictureBtn('.nextImageBtn .prevAndNextImageText')
                 changePicture(true)
             }
 
             // Pasar a la imagen anterior
             const prevPicture = function() {
+                // animatePictureBtn('.prevImageBtn .prevAndNextImageText')
                 changePicture(false)
             }
 
@@ -807,6 +836,14 @@
                 currentPictureLoader.classList.remove('loading')
                 currentPictureLoader.style.transform = null
                 nextPictureLoader.classList.add('loading')
+            }
+
+            const animatePictureBtn = function(selector) {
+                const btnText = document.querySelector(selector)
+                btnText.classList.remove('hidden')
+                setTimeout(() => {
+                    btnText.classList.add('hidden')
+                }, 300)
             }
 
             // Continuar animación

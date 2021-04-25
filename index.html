@@ -209,7 +209,7 @@
             bottom: 0;
             right: 0;
             margin: 32px 9vw;
-            /* z-index: 20; */
+            z-index: 20;
 
             padding: 16px 24px 16px 32px;
             border-radius: 10px 10px 0 10px;
@@ -217,7 +217,6 @@
 
             outline: none;
             background: none;
-            cursor: pointer;
             transition: box-shadow 50ms;
         }
         .pictureDescription > * {
@@ -750,6 +749,20 @@
             let isBeingClicked = false
             let isShowingInfo = false
 
+            // https://stackoverflow.com/a/27078401
+            function throttle (callback, limit) {
+                let waiting = false;                      // Initially, we're not waiting
+                return function () {                      // We return a throttled function
+                    if (!waiting) {                       // If we're not waiting
+                        callback.apply(this, arguments);  // Execute users function
+                        waiting = true;                   // Prevent future invocations
+                        setTimeout(function () {          // After a period of time
+                            waiting = false;              // And allow future invocations
+                        }, limit);
+                    }
+                }
+            }
+
             // Pasar a la siguiente imagen
             const nextPicture = function() {
                 changePicture(true)
@@ -896,7 +909,7 @@
                     const endTime = new Date()
                     const timeElapsed = endTime - startTime
                     if (timeElapsed < msToInterpretClickAsHold) {
-                        pictureClick(hasToGoToNext)
+                        throttle(pictureClick, 5000)(hasToGoToNext)
                     } else {
                         pictureHold()
                     }
@@ -953,12 +966,14 @@
 
             if (isTouchDevice()) {
                 // Manejar interacción sobre las imágenes en touchscreen
-                prevImageBtnSelector.addEventListener('touchstart', startedTouch.bind(this, false))
-                nextImageBtnSelector.addEventListener('touchstart', startedTouch.bind(this, true))
+                const throttledTouch = throttle(startedTouch, 500)
+                prevImageBtnSelector.addEventListener('touchstart', throttledTouch.bind(this, false))
+                nextImageBtnSelector.addEventListener('touchstart', throttledTouch.bind(this, true))
             } else {
                 // Manejar interacción sobre las imágenes en desktop
-                prevImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, false))
-                nextImageBtnSelector.addEventListener('mousedown', startedClick.bind(this, true))
+                const throttledClick = throttle(startedClick, 500)
+                prevImageBtnSelector.addEventListener('mousedown', throttledClick.bind(this, false))
+                nextImageBtnSelector.addEventListener('mousedown', throttledClick.bind(this, true))
             }
 
             // Manejar interacción sobre botón de mostrar info
